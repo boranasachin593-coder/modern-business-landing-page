@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora — Modern Business Landing Page</title>
+  <meta name="description" content="Modern responsive business landing page demo created for portfolio use.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#111827;background:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #eef0f5}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;font-size:21px;display:flex;gap:9px;align-items:center}
+    .logo-mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#4f46e5,#7c3aed);display:grid;place-items:center;color:#fff;font-weight:900}
+    .links{display:flex;gap:27px;font-size:14px;color:#4b5563}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:12px;font-weight:700;font-size:14px;border:1px solid #dfe3ef}
+    .btn.primary{background:#4f46e5;color:#fff;border-color:#4f46e5;box-shadow:0 8px 24px rgba(79,70,229,.22)}
+    .hero{padding:78px 0 64px;background:linear-gradient(180deg,#fafaff,#fff)}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+    .eyebrow{color:#4f46e5;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+    h1{font-size:clamp(44px,6vw,70px);line-height:1.02;letter-spacing:-.045em;margin-bottom:22px}
+    .gradient{color:#4f46e5}
+    .lead{font-size:18px;color:#5b6475;max-width:590px}
+    .actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+    .stats{display:flex;gap:34px;margin-top:36px}
+    .stat strong{display:block;font-size:25px}.stat span{font-size:12px;color:#6b7280}
+    .hero-card{border-radius:28px;overflow:hidden;min-height:450px;background:linear-gradient(135deg,#eef0ff,#f7f5ff);box-shadow:0 24px 70px rgba(45,42,100,.12);position:relative}
+    .hero-card .photo{height:100%;min-height:450px;background:linear-gradient(135deg,#dfe4ff,#fff)}
+    .mock-person{position:absolute;right:9%;bottom:0;width:72%;height:78%;border-radius:160px 160px 0 0;background:linear-gradient(145deg,#eef1ff,#d7d9ef);display:flex;align-items:flex-end;justify-content:center}
+    .mock-person:after{content:"";width:44%;height:64%;border-radius:48% 48% 0 0;background:linear-gradient(160deg,#111827,#374151);box-shadow:inset 0 0 0 10px rgba(255,255,255,.08)}
+    .floating{position:absolute;left:7%;bottom:12%;background:#fff;padding:18px 20px;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.1);font-weight:800}
+    section{padding:78px 0}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 42px}
+    .section-head h2{font-size:38px;line-height:1.12;margin-bottom:12px}
+    .section-head p{color:#6b7280}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .service{padding:25px;border:1px solid #eceef4;border-radius:20px;background:#fff}
+    .icon{width:45px;height:45px;border-radius:13px;background:#eeefff;color:#4f46e5;display:grid;place-items:center;font-weight:900;margin-bottom:18px}
+    .service h3{font-size:17px;margin-bottom:7px}.service p{font-size:14px;color:#697386}
+    .about{background:#f8f9ff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .about-box{height:330px;border-radius:25px;background:linear-gradient(135deg,#dfe3ff,#fff);display:grid;place-items:center;box-shadow:inset 0 0 0 1px #e5e7f3}
+    .about-box div{background:#fff;padding:30px 42px;border-radius:20px;text-align:center;box-shadow:0 15px 45px rgba(40,40,80,.1)}
+    .about h2{font-size:40px;line-height:1.1;margin-bottom:18px}.about p{color:#687286;margin-bottom:20px}
+    .projects{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .project{border:1px solid #eceef4;border-radius:18px;overflow:hidden;background:#fff}
+    .project-img{height:145px;background:linear-gradient(135deg,#111827,#4f46e5);display:flex;align-items:flex-end;padding:15px;color:#fff;font-weight:800}
+    .project:nth-child(2) .project-img{background:linear-gradient(135deg,#0f766e,#a7f3d0);color:#063c35}
+    .project:nth-child(3) .project-img{background:linear-gradient(135deg,#334155,#93c5fd)}
+    .project:nth-child(4) .project-img{background:linear-gradient(135deg,#be185d,#fbcfe8);color:#701a3c}
+    .project-body{padding:16px}.project-body p{font-size:13px;color:#6b7280}
+    .cta{padding:80px 0}.cta-box{border-radius:28px;background:#111827;color:#fff;text-align:center;padding:65px 25px}.cta-box h2{font-size:42px;line-height:1.1;margin-bottom:14px}.cta-box p{color:#cbd5e1;margin-bottom:26px}
+    footer{padding:30px 0;border-top:1px solid #eee;color:#6b7280;font-size:13px}.footer-row{display:flex;justify-content:space-between}
+    @media(max-width:850px){.hero-grid,.about-grid{grid-template-columns:1fr}.grid4,.projects{grid-template-columns:1fr 1fr}.links{display:none}.hero{padding-top:55px}}
+    @media(max-width:520px){.grid4,.projects{grid-template-columns:1fr}.stats{gap:18px}.hero-card{min-height:360px}.hero-card .photo{min-height:360px}.cta-box h2{font-size:32px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container"><nav>
+    <a class="logo" href="#"><span class="logo-mark">N</span>Nexora</a>
+    <div class="links"><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a></div>
+    <a class="btn primary" href="#contact">Get Started</a>
+  </nav></div>
+</header>
+
+<main>
+<section class="hero" id="home"><div class="container hero-grid">
+  <div>
+    <div class="eyebrow">Digital solutions for modern businesses</div>
+    <h1>Build. Grow. Lead <span class="gradient">in the Digital World.</span></h1>
+    <p class="lead">We help businesses create powerful websites, build stronger brands, and grow online with modern digital solutions.</p>
+    <div class="actions"><a class="btn primary" href="#contact">Get Started →</a><a class="btn" href="#work">View Work</a></div>
+    <div class="stats"><div class="stat"><strong>200+</strong><span>Happy Clients</span></div><div class="stat"><strong>500+</strong><span>Projects Delivered</span></div><div class="stat"><strong>98%</strong><span>Client Satisfaction</span></div></div>
+  </div>
+  <div class="hero-card"><div class="photo"></div><div class="mock-person"></div><div class="floating">📈 Grow Faster<br><small style="font-weight:500;color:#6b7280">Turn ideas into results</small></div></div>
+</div></section>
+
+<section id="services"><div class="container">
+  <div class="section-head"><div class="eyebrow">Our services</div><h2>Everything You Need to Succeed Online</h2><p>Clean design, practical technology and conversion-focused experiences for growing businesses.</p></div>
+  <div class="grid4">
+    <article class="service"><div class="icon">▣</div><h3>Website Development</h3><p>Modern, responsive and high-performance websites built for your goals.</p></article>
+    <article class="service"><div class="icon">✦</div><h3>UI/UX Design</h3><p>Beautiful and user-friendly interfaces designed around your customers.</p></article>
+    <article class="service"><div class="icon">↗</div><h3>Digital Marketing</h3><p>Result-driven strategies that help your brand reach the right audience.</p></article>
+    <article class="service"><div class="icon">🛒</div><h3>E-commerce Solutions</h3><p>Conversion-ready online stores tailored to your business.</p></article>
+  </div>
+</div></section>
+
+<section class="about" id="about"><div class="container about-grid">
+  <div class="about-box"><div><strong style="font-size:28px">Ideas → Strategy → Design → Growth</strong><br><span style="color:#6b7280">A simple process for better digital experiences.</span></div></div>
+  <div><div class="eyebrow">About us</div><h2>We Build Digital Experiences That Matter</h2><p>Nexora is a fictional business brand created as a self-initiated portfolio project. The concept combines creativity, technology and strategy to present a clean, professional and conversion-focused digital experience.</p><a class="btn primary" href="#contact">Learn More →</a></div>
+</div></section>
+
+<section id="work"><div class="container">
+  <div class="section-head"><div class="eyebrow">Our work</div><h2>Selected Project Concepts</h2><p>Sample interfaces created to demonstrate responsive web design and landing-page structure.</p></div>
+  <div class="projects">
+    <article class="project"><div class="project-img">Stronger Everyday</div><div class="project-body"><strong>Fitness Pro</strong><p>Gym & fitness website concept</p></div></article>
+    <article class="project"><div class="project-img">Fresh Organic Food</div><div class="project-body"><strong>GreenCart</strong><p>Organic store concept</p></div></article>
+    <article class="project"><div class="project-img">Explore The World</div><div class="project-body"><strong>Travel More</strong><p>Travel website concept</p></div></article>
+    <article class="project"><div class="project-img">New Collection</div><div class="project-body"><strong>StyleHub</strong><p>Fashion e-commerce concept</p></div></article>
+  </div>
+</div></section>
+
+<section class="cta" id="contact"><div class="container"><div class="cta-box"><h2>Ready to Take Your Business to the Next Level?</h2><p>Let's create something clean, modern and effective together.</p><a class="btn primary" href="mailto:hello@example.com">Get in Touch →</a></div></div></section>
+</main>
+
+<footer><div class="container footer-row"><span>© 2026 Nexora — Portfolio Demo</span><span>Self-initiated project</span></div></footer>
+</body>
+</html>
